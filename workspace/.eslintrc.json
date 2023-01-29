@@ -1,0 +1,70 @@
+{
+  "env": {
+      "browser": true,
+      "es2022": true,
+      "node": true
+  },
+  "extends": [
+      "plugin:@typescript-eslint/recommended",
+      "next/core-web-vitals",
+      "prettier"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+      "ecmaFeatures": {
+          "jsx": true
+      },
+      "ecmaVersion": "latest",
+      "sourceType": "module",
+      "project": "./tsconfig.json"
+  },
+  "plugins": ["react", "@typescript-eslint", "unused-imports", "import"],
+  "settings": {
+      "react": {
+          "version": "detect"
+      }
+  },
+  "rules": {
+      "react/react-in-jsx-scope": "off",
+      "@typescript-eslint/no-unused-vars": "off",
+      "@typescript-eslint/explicit-function-return-type": "warn",
+      "unused-imports/no-unused-imports": "error",
+      "import/order": [
+        "error",
+        {
+          "groups": [
+            "builtin",
+            "external",
+            "internal",
+            [
+              "parent",
+              "sibling"
+            ],
+            "object",
+            "type",
+            "index"
+          ],
+          "newlines-between": "always",
+          "pathGroupsExcludedImportTypes": [
+            "builtin"
+          ],
+          "alphabetize": {
+            "order": "asc",
+            "caseInsensitive": true
+          },
+          "pathGroups": [
+            {
+              "pattern": "@/components/common",
+              "group": "internal",
+              "position": "before"
+            },
+            {
+              "pattern": "@/components/hooks",
+              "group": "internal",
+              "position": "before"
+            }
+          ]
+        }
+      ]
+  }
+}

@@ -1,0 +1,12 @@
+# next.js build output
+.next
+
+# ignore config files
+.env
+package.json
+package-lock.json
+tsconfig.json
+next.config.js
+
+# Dependency directories
+node_modules
