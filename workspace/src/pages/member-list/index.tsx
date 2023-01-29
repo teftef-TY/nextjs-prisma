@@ -7,12 +7,10 @@ interface Props {
 }
 
 export const getServerSideProps: GetServerSideProps<Props> = async (context) => {
-  console.log(context.req.headers.host)
   const host = context.req.headers.host || 'localhost:3000'
   const protocol = /^localhost/.test(host) ? 'http' : 'https' 
   const response = await fetch(`${protocol}://${host}/api/user/select`);
   const users: Array<User> = await response.json();
-  console.log(users)
   return { props: { users } };
 };
 
